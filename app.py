@@ -10,7 +10,7 @@ import MySQLdb
 
 #e = create_engine('sqlite:///salaries.db')
 # Connect
-db = MySQLdb.connect(host="hitmydb.mysql.database.azure.com",user="myadmin@hitmydb",passwd="Welcome12@db",db="mysampledb")
+db = MySQLdb.connect(host="letstestdb.mysql.database.azure.com",user="myadmin@letstestdb",passwd="Welcome12@admin",db="mysampledb")
 
 app = Flask(__name__)
 api = Api(app)

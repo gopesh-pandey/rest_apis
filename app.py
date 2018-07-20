@@ -29,10 +29,10 @@ class Departments_Meta(Resource):
                 #return {'departments': [i[0] for i in query.cursor.fetchall()]}
 
 class Departmental_Salary(Resource):
-    def get(self, department_name):
+    def get(self, geography):
         #conn = e.connect()
         cursor = db.cursor()
-        cursor.execute("select * from products where geography='%s'"%department_name.upper())
+        cursor.execute("select * from products where geography='%s'"%geography.upper())
 
         r = [dict((cursor.description[i][0], value)
                         for i, value in enumerate(row)) for row in cursor.fetchall()]
@@ -42,8 +42,8 @@ class Departmental_Salary(Resource):
         #return result
     #We can have PUT,DELETE,POST here. But in our API GET implementation is sufficient
 
-api.add_resource(Departmental_Salary, '/dept/<string:department_name>')
-api.add_resource(Departments_Meta, '/departments')
+api.add_resource(Departmental_Salary, '/products/<string:geography>')
+api.add_resource(Departments_Meta, '/products')
 
 if __name__ == '__main__':
     app.run(debug=True)

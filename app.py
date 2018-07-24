@@ -3,8 +3,8 @@ from flask import Flask, request
 from flask_restful import Resource, Api
 #from sqlalchemy import create_engine
 from json import dumps
-#import MySQLdb
-import pymysql
+import MySQLdb
+#import pymysql
 
 
 #Create a engine for connecting to SQLite3.
@@ -12,8 +12,8 @@ import pymysql
 
 #e = create_engine('sqlite:///salaries.db')
 # Connect
-#db = MySQLdb.connect(host="letstestdb.mysql.database.azure.com",user="myadmin@letstestdb",passwd="Welcome12@admin",db="mysampledb")
-db = pymysql.connect(host="letstestdb.mysql.database.azure.com", port=3306, user="myadmin@letstestdb", passwd="Welcome12@admin", db="mysampledb")
+db = MySQLdb.connect(host="letstestdb.mysql.database.azure.com",user="myadmin@letstestdb",passwd="Welcome12@admin",db="mysampledb")
+#db = pymysql.connect(host="letstestdb.mysql.database.azure.com", port=3306, user="myadmin@letstestdb", passwd="Welcome12@admin", db="mysampledb")
 
 
 app = Flask(__name__)
